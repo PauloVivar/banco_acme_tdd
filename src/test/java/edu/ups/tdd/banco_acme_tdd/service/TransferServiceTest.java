@@ -22,19 +22,36 @@ public class TransferServiceTest {
   
   @Test
   void shouldTransferSuccessfullyWhenEnoughBalance() {
-      // Arrange
-      TransferDTO transferDTO = new TransferDTO(
-          SOURCE_ACCOUNT,
-          TARGET_ACCOUNT,
-          new BigDecimal("500.00"),
-          "Test transfer"
-      );
-      
-      // Act
-      boolean result = transferService.transfer(transferDTO);
-      
-      // Assert
-      assertTrue(result);
-    }
+    // Arrange
+    TransferDTO transferDTO = new TransferDTO(
+        SOURCE_ACCOUNT,
+        TARGET_ACCOUNT,
+        new BigDecimal("500.00"),
+        "Test transfer"
+    );
+    
+    // Act
+    boolean result = transferService.transfer(transferDTO);
+    
+    // Assert
+    assertTrue(result);
+  }
+
+  @Test
+  void shouldFailTransferWhenInsufficientBalance() {
+    // Arrange
+    TransferDTO transferDTO = new TransferDTO(
+        SOURCE_ACCOUNT,
+        TARGET_ACCOUNT,
+        new BigDecimal("500.00"),
+        "Test transfer"
+    );
+    
+    // Act
+    boolean result = transferService.transfer(transferDTO);
+    
+    // Assert
+    assertTrue(result);
+  }
   
 }
